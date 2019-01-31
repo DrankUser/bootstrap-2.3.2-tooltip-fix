@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-2.3.2-tooltip-fix.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap-tooltip.js"></script>
+    <title>Example</title>
+    <style>
+        .container {
+            margin-left: 15px
+        }
+        input {
+            box-sizing: initial
+        }
+        body {
+            position: relative;
+            width: 2000px
+        }
+        .t {
+            margin: 20px;
+            height: 50px;
+            width: 50px;
+            color: white;
+            text-align: center;
+            background: #3c763d;
+        }
+
+        .trigger {
+            margin: 10px;
+        }
+
+        .target1 {
+            position: absolute;
+            top: 0px;
+            right: 15px;
+        }
+
+        .target2 {
+            position: absolute;
+            top: 1200px;
+            right: 15px;
+            margin-bottom: 100px;
+        }
+
+        .target3 {
+            position: absolute;
+            top: 300px;
+            left: 0px;
+        }
+
+        .target4 {
+            position: absolute;
+            top: 200px;
+            left: 1180px;
+        }
+    </style>
+</head>
+<body>
+<div class="t target1">left</div>
+<div class="t target2">left</div>
+<div class="t target3">top</div>
+<div class="t target4">bottom</div>
+<div class="container">
+<button class="trigger btn btn-success">Toggle tips</button>
+<label for="title">Tooltip content: </label>
+<input type="text" id="title" class="input-x-large"></input><br/>
+<input type="range" id="slider" min="10" max="200" value="10"></input>
+<div class="t" id="slider_target" style="margin: 0; margin-top: 50px">top</div>
+</div>
+<script>
+  var change_order = {
+    'top': 'left',
+    'left': 'right',
+    'right': 'bottom',
+    'bottom': 'top',
+  };
+
+  $(document).on('click', '.t', function () {
+    $(this).text(change_order[$(this).text()])
+  })
+
+  $(document).on('input', '#slider', function () {
+    $('#slider_target')
+      .css('margin-left', this.value + 'px')
+      .tooltip('reposition');
+  })
+
+  $('document').ready(function () {
+    $('.t').tooltip({
+      placement: function (tip, el) { return $(el).data('tooltip')[$(el).text() + 'Placement'](tip, el); },
+      title: function() { return $('#title').val() },
+      trigger: 'manual'
+    });
+    $('.trigger').click(function () {
+      $('.t').tooltip('toggle');
+    });
+  });
+</script>
+</body>
+</html>
