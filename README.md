@@ -43,3 +43,5 @@ $(document).on('input', '#slider', function () {
 ### Quick preview
 
 ![Scroll example](https://i.imgur.com/0awPdES.gif)
+
+You can [try it yourself on exaple page](https://drankuser.github.io/bootstrap-2.3.2-tooltip-fix/)
