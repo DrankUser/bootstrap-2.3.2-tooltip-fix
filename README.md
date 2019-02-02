@@ -3,6 +3,41 @@ Bootstrap 2.3.2 Tooltip widget positioning fixes and improvements
 
 Completely reworked positioning mechanism of tooltips. Now tooltips does not overflow out of window and keeps their position during window scroll or resize.
 
+### Installation
+
+Plugin was tested with jQuery 1.11.1.
+
+JS part of this jQuery widget is completely independent.
+You don't need to include old Bootstrap Tooltip plugin.
+
+BUT the CSS file contains only fixes of original Bootstrap styles and Bootstrap 2.3.2 CSS library is required.
+
+In order to make this work, style and script files must be included after jQuery and Bootstrap files.
+
+```html
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <!-- after Bootstrap files -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-2.3.2-tooltip-fix.css">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- there can be another original Bootstrap JS libs -->
+
+    <script src="bootstrap-tooltip.js"></script>
+  </body>
+</html>
+```
+
+### Bootstrap Popover
+
+JS file includes definition of original Bootstrap Popover plugin.
+This is needed to make Bootstrap Popover plugin work on the base of new Tooltip plugin.
+
+Nothing was changed, it's just a copy of original plugin.
+
 ### Full list of changes:
 - no more overflow out of window/document;
 - added default placement functions, which change placement to opposite if tooltip does not fit;
@@ -28,7 +63,7 @@ Completely new methods:
 
 ### `recalculation` method
 
-Now, it is possible to manually trigger recalculation of tooltip, for example, on parent div scroll or on target element move events
+Now, it is possible to manually trigger recalculation of tooltip position, for example, on parent div scroll or on target element move events
 
 ```js
 $(document).on('input', '#slider', function () {
