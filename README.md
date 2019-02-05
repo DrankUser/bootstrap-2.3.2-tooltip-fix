@@ -1,7 +1,7 @@
 # bootstrap-2.3.2-tooltip-fix
-Bootstrap 2.3.2 Tooltip widget positioning fixes and improvements
+Bootstrap 2.3.2 Tooltip: fixed widget positioning
 
-Completely reworked positioning mechanism of tooltips. Now tooltips does not overflow out of window and keeps their position during window scroll or resize.
+Completely reworked positioning mechanism of tooltips. Tooltips no longer overflow out of the window, and keep their position during window scrolling and resizing.
 
 ### Installation
 
