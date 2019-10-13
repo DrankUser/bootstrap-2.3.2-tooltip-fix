@@ -475,7 +475,7 @@
         return rect;
       } else {
         return $.extend({}, rect, {
-          width: elem.offsetWidth, // +1 for remove problems with fractional size
+          width: elem.offsetWidth,
           height: elem.offsetHeight
         });
       }
