@@ -79,4 +79,4 @@ $(document).on('input', '#slider', function () {
 
 ![Scroll example](https://i.imgur.com/0awPdES.gif)
 
-You can [try it yourself on exaple page](https://drankuser.github.io/bootstrap-2.3.2-tooltip-fix/)
+You can [try it yourself on exaple page](https://mitasov-ra.github.io/bootstrap-2.3.2-tooltip-fix/)
